@@ -49,6 +49,11 @@ namespace BlackJack1M
 				Console.WriteLine($"You Won!!!! Your hand: {sumPlayer}. Dealer: {sumDealer}");
 
 			}
+			else if (sumPlayer > 21)
+			{
+				Console.WriteLine($"Sorry mate, you lost.Your hand: { sumPlayer}. Dealer: { sumDealer}");
+
+			}
 			else
 			{
 				Console.WriteLine($"You Won!!!! Your hand: {sumPlayer}. Dealer: {sumDealer}");
@@ -109,20 +114,13 @@ namespace BlackJack1M
 						HandSum += 10;
 						break;
 					case "Ace":
-						Console.WriteLine($"Your deck sum is curretly {HandSum}. Please choose value for Ace: 1 or 11:");
-						var answer = Console.ReadLine().ToString();
-						if (answer == "1")
+						if (HandSum >= 11)
 						{
 							HandSum += 1;
-
-						}
-						else if ((answer == "11"))
-						{
-							HandSum += 11;
-						}
+						}						
 						else
 						{
-							HandSum += 1;
+							HandSum += 11;
 						}
 						break;
 					default:

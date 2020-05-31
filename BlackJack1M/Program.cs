@@ -28,14 +28,16 @@ namespace BlackJack1M
 						Game.HitCard(dealerCards, d.GameDeck);
 						Game.HitCard(userCards, d.GameDeck);
 						Game.HitCard(userCards, d.GameDeck);
+						int dealerHandSum = Game.SumHandValue(dealerCards);
+						int playerHandSum = Game.SumHandValue(userCards);
 						Console.WriteLine("Your cards are:");
 						foreach (var card in userCards)
 						{
 							Console.WriteLine($"{card.cardVal}, {card.cardNum}");
 						}
+						Console.WriteLine($"Your total is: {playerHandSum}");
 						Console.WriteLine($"Dealer's first card: {dealerCards[0].cardVal}, {dealerCards[0].cardNum}");
-						int dealerHandSum = Game.SumHandValue(dealerCards);
-						int playerHandSum = Game.SumHandValue(userCards);
+						
 						if (dealerHandSum == 21 && playerHandSum != 21)
 						{
 							Console.WriteLine($"Sorry, dealer won, got {dealerHandSum}. Dealer's hand:");
@@ -50,45 +52,46 @@ namespace BlackJack1M
 							}
 							return;
 						}
-
-						Console.WriteLine($"Hit or stay? h/s");
-						string ans = Console.ReadLine().ToLower();
-						switch (ans)
+						do
 						{
-							case "h":
-								Game.HitCard(userCards, d.GameDeck);
-								Game.HitCard(dealerCards, d.GameDeck);
-								int lastIndexUser = userCards.Count - 1;
-								int lastIndexDealer = dealerCards.Count - 1;
-								Console.WriteLine($"Your card: {userCards[lastIndexUser].cardVal}, {userCards[lastIndexUser].cardNum}");
-								Console.WriteLine($"Dealer's card: {dealerCards[lastIndexDealer].cardVal}, {dealerCards[lastIndexDealer].cardNum}");
-								if (dealerHandSum == 21 && playerHandSum != 21)
-								{
-									Console.WriteLine($"Sorry, dealer won, got {dealerHandSum}. Dealer's hand:");
-									foreach (var card in dealerCards)
+							Console.WriteLine($"Hit or stay? h/s");
+							string ans = Console.ReadLine().ToLower();
+							switch (ans)
+							{
+								case "h":
+									Game.HitCard(userCards, d.GameDeck);
+									Game.HitCard(dealerCards, d.GameDeck);
+									int lastIndexUser = userCards.Count - 1;
+									int lastIndexDealer = dealerCards.Count - 1;
+									Console.WriteLine($"Your card: {userCards[lastIndexUser].cardVal}, {userCards[lastIndexUser].cardNum}");
+									Console.WriteLine($"Dealer's card: {dealerCards[lastIndexDealer].cardVal}, {dealerCards[lastIndexDealer].cardNum}");
+									if (dealerHandSum == 21 && playerHandSum != 21)
 									{
-										Console.WriteLine($"{card.cardVal}, {card.cardNum}");
+										Console.WriteLine($"Sorry, dealer won, got {dealerHandSum}. Dealer's hand:");
+										foreach (var card in dealerCards)
+										{
+											Console.WriteLine($"{card.cardVal}, {card.cardNum}");
+										}
+										Console.WriteLine($"You, on the other hand, got {playerHandSum}:");
+										foreach (var card in userCards)
+										{
+											Console.WriteLine($"{card.cardVal}, {card.cardNum}. GAME OVER!");
+										}
+									return;
 									}
-									Console.WriteLine($"You, on the other hand, got {playerHandSum}:");
-									foreach (var card in userCards)
+										
+									break;
+								case "s":
+									Game.Stay(userCards, dealerCards);
+									if (Game.CheckWinner(userCards, dealerCards))
 									{
-										Console.WriteLine($"{card.cardVal}, {card.cardNum}. GAME OVER!");
+										return;
 									}
-									return;
-								}
-
-								break;
-							case "s":
-								Game.Stay(userCards, dealerCards);
-								if (Game.CheckWinner(userCards, dealerCards))
-								{
-									Console.WriteLine($"You Won!");
-									return;
-								}
-								break;
-							default:
-								break;
-						}
+									break;
+								default:
+									break;
+							}
+						} while (playerHandSum <= 21 && dealerHandSum <= 21);
 
 						break;
 					default:
