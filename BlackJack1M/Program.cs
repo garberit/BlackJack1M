@@ -7,7 +7,7 @@ namespace BlackJack1M
 		static void Main(string[] args)
 		{
 			Console.WriteLine("*********************");
-			Console.WriteLine($"Wlcome to the best BlackJack console app ever! JK LOL \\(^o^)/ it\'s ok\nPlease select from the options below:");
+			Console.WriteLine($"Welcome to the best BlackJack console app ever! JK LOL \\(^o^)/ it\'s ok\nPlease select from the options below:");
 
 			while (true)
 			{
