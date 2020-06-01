@@ -9,7 +9,7 @@ namespace BlackJack1M
 
 		#region Properties
 
-		public List<Card> GameDeck { get; set; }
+		public List<Card> GameDeck { get; private set; }
 		#endregion
 
 

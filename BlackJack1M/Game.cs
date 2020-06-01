@@ -75,6 +75,7 @@ namespace BlackJack1M
 			else
 			{
 				Console.WriteLine($"You Won!!!! Your hand: {sumPlayer}. Dealer: {sumDealer}");
+				
 
 			}
 		}
@@ -84,13 +85,14 @@ namespace BlackJack1M
 		/// </summary>
 		/// <param name="l">The hand which is dealt a card</param>
 		/// <param name="d">The para which stores the deck</param>
-		public static void HitCard(List<Card> l, List<Card> d)
+		public static Card HitCard(List<Card> l, List<Card> d)
 		{
 			if (l != null)
 			{
 				l.Add(d[0]);
 				d.Remove(d[0]);
 			}
+			return d[0];
 		}
 
 		/// <summary>
