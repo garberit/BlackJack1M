@@ -3,7 +3,7 @@
 ## Classes:
 
 ### Card
-Defineface and numeric value via enum
+Define face and numeric value via enum
 
 ### Deck
 Defines the list of cards, the game deck. Whenever a new game starts, a new deck of 52 uniqe cards will be created and shuffled.
