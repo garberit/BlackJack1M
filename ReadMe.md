@@ -27,4 +27,5 @@ When this class is called, it can:
 ### Program
 This is where all the slopy code happens. Sorry :-)
 
+Here's a photo from [Imgur](https://imgur.com/r/funny/yEPpw)
 ![This is from Imgur](https://i.imgur.com/yEPpw.gif)
