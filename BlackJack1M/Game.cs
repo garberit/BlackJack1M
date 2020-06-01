@@ -12,24 +12,42 @@ namespace BlackJack1M
 		#endregion
 
 		#region Methods
+		
+		/// <summary>
+		/// Create a new deck
+		/// </summary>
+		/// <returns>Returns a new deck with 52 unique cards</returns>
 		public static Deck CreateNEwDeck()
 		{
 			Deck d = new Deck();
 			return d;
 		} 
 
+		/// <summary>
+		/// Creates a list to store player's cards
+		/// </summary>
+		/// <returns>Returns a new list to store the player's cards</returns>
 		public static List<Card> UserHand()
 		{
 			PlayerHand userHand = new PlayerHand();
 			return userHand.PlayersHand;
 		}
 
+		/// <summary>
+		/// Creates a list to store dealer's cards
+		/// </summary>
+		/// <returns>Returns a new list to store the dealer's cards</returns>
 		public static List<Card> DealerHand()
 		{
 			PlayerHand dealerHand = new PlayerHand();
 			return dealerHand.PlayersHand;
 		}
 
+		/// <summary>
+		/// Checks sum of cards if player choses to stay and not be dealt more cards
+		/// </summary>
+		/// <param name="player">The player's name of list(hand)</param>
+		/// <param name="dealer">The dealer's name of list(hand)</param>
 		public static void Stay(List<Card> player, List<Card> dealer)
 		{
 			int sumPlayer = SumHandValue(player);
@@ -61,6 +79,11 @@ namespace BlackJack1M
 			}
 		}
 
+		/// <summary>
+		/// Hit's another card
+		/// </summary>
+		/// <param name="l">The hand which is dealt a card</param>
+		/// <param name="d">The para which stores the deck</param>
 		public static void HitCard(List<Card> l, List<Card> d)
 		{
 			if (l != null)
@@ -70,6 +93,11 @@ namespace BlackJack1M
 			}
 		}
 
+		/// <summary>
+		/// Sums the value of a hand
+		/// </summary>
+		/// <param name="l">The list which sum will be calculated for (hand)</param>
+		/// <returns>Returns the int sum of the cards in a hand</returns>
 		public static int SumHandValue(List<Card> l)
 		{
 			int HandSum = 0;
@@ -129,6 +157,12 @@ namespace BlackJack1M
 			}
 			return HandSum;
 		}
+		/// <summary>
+		/// Checks if player won
+		/// </summary>
+		/// <param name="player">The list which stores player's cards</param>
+		/// <param name="dealer">The list which stores dealer's cards</param>
+		/// <returns></returns>
 		public static bool CheckWinner(List<Card> player, List<Card> dealer)
 		{
 			int sumPlayer = SumHandValue(player);

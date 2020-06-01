@@ -15,6 +15,9 @@ namespace BlackJack1M
 
 		#region Methods
 
+	/// <summary>
+	/// Creates a card deck with 52 unique cards and shuffles their order using the Shuffle method
+	/// </summary>
 		public Deck()
 		{
 			//List<Card> gameDeck = new List<Card>();
@@ -35,7 +38,12 @@ namespace BlackJack1M
 			ShuffleDeck<Card>(GameDeck);
 		}
 
-		public void ShuffleDeck<Card>(IList<Card> l)
+	/// <summary>
+	/// Shuffling algorithm to be used when instantiating the new game deck
+	/// </summary>
+	/// <typeparam name="Card">Objects in the deck list</typeparam>
+	/// <param name="l">The list of cards to be shuffled (AKA the deck)</param>
+		public void ShuffleDeck<Card> (IList<Card> l)
 		{
 			Random rand = new Random();
 			int n = l.Count;

@@ -16,25 +16,15 @@ namespace BlackJack1M
 		#endregion
 
 		#region Methods
+		
+		/// <summary>
+		/// Instantiates the hand with sum = 0
+		/// </summary>
 		public PlayerHand()
 		{
 			HandSum = 0;
 			PlayersHand = new List<Card>();
-		}
-
-
-		public void  ShowHand(List<Card> l)
-		{
-			Console.WriteLine("Your Hand: ");
-			foreach (var card in l)
-			{
-				Console.WriteLine($"{card.cardVal}, {card.cardNum} |");
-			}
-		}
-
-		
-
-		
+		}		
 
 		#endregion
 	}
