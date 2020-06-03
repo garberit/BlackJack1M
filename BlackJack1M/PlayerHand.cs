@@ -15,7 +15,7 @@ namespace BlackJack1M
 
 		#endregion
 
-		#region Methods
+		#region Instancing
 		
 		/// <summary>
 		/// Instantiates the hand with sum = 0

@@ -39,7 +39,7 @@ namespace BlackJack1M
 
 		#endregion
 
-		#region Methods
+		#region Instancing
 		public Card()
 		{
 
