@@ -36,13 +36,14 @@ namespace BlackJack1M
 
 			}
 			ShuffleDeck<Card>(GameDeck);
+
 		}
 
-	/// <summary>
-	/// Shuffling algorithm to be used when instantiating the new game deck
-	/// </summary>
-	/// <typeparam name="Card">Objects in the deck list</typeparam>
-	/// <param name="l">The list of cards to be shuffled (AKA the deck)</param>
+		/// <summary>
+		/// Shuffling algorithm (Fisher–Yates shuffle) to be used when instantiating the new game deck
+		/// </summary>
+		/// <typeparam name="Card">Objects in the deck list</typeparam>
+		/// <param name="l">The list of cards to be shuffled (AKA the deck)</param>
 		public void ShuffleDeck<Card> (IList<Card> l)
 		{
 			Random rand = new Random();
